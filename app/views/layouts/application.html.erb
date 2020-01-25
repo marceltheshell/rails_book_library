@@ -11,13 +11,21 @@
 
   <body>
     <header>
-      <h4>This is the header space</h4>
-      <% if signed_in? %>
-        Signed in as: <%= current_user.email %>
-        <%= button_to 'Sign out', sign_out_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign in', sign_in_path %>
-      <% end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4>Library Portal</h4>
+          </div>
+          <div class="col-sm-6">
+            <% if signed_in? %>
+              Signed in as: <%= current_user.email %>
+              <%= button_to 'Sign out', sign_out_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Sign in', sign_in_path %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </header>
     <section>
       <%= yield %>
