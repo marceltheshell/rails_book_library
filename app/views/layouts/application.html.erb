@@ -11,6 +11,12 @@
 
   <body>
     <header>
+      <nav class="navbar navbar-light bg-light ">
+       <span class="navbar-text nav navbar-nav navbar-right">
+          <% if signed_in? %>
+          Signed in as: <%= current_user.email %>
+        </span>
+      </nav>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Library Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +47,6 @@
           </span>
           <!-- //catalog search-->
           <!-- login stuff -->
-          <span class="navbar-text">
-            <% if signed_in? %>
-              Signed in as: <%= current_user.email %>
-          </span>
           <span class="navbar-text">
               <%= button_to 'Sign out', sign_out_path, method: :delete %>
             <% else %>

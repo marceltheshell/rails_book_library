@@ -1,2 +1,25 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+    <div class = "jumbotron text-center">
+        <h3>Welcome to your library portal, <%= current_user.first_name %>!</h3>
+        <% if @checked_out_book_items.any? %>
+        <h7>Your currently checked out books: </h7>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Location</th>
+                <th>Due Date</th>
+            </tr>
+            <% @checked_out_book_items.each do |bi| %>
+            <tr>
+                <td><%= bi.book_item.book.title %></td>
+                <td><%= "#{bi.book_item.book.author.first_name} #{bi.book_item.book.author.last_name}" %></td>
+                <td><%= bi.book_item.location.name %></td>
+            </tr>
+            <% end %>
+        </table>
+        <% else %>
+        <h7>Your currently dont have any checked out books.</h7>
+        <% end %>
+    </div>
+</div>

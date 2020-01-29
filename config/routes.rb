@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'book_items/index'
+  get 'book_items/show'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -13,12 +15,11 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'users/delete'
   get 'user', to: 'users#show'
-  get 'book', to: 'book#index', as: 'book'
+  get 'catalog', to: 'book_items#index', as: 'book_item'
   get 'book/create'
   get 'book/new'
   get 'book/destroy'
   get 'book/show'
-  get 'catalog/show', to: 'catalog#show'
   get 'catalog/search'
   get 'catalog/checkout'
   root to: 'welcome#show'

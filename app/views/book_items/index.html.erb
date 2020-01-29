@@ -1,0 +1,28 @@
+<div class="container">
+    <span>
+        <%= form_tag(book_item_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag 'Search', name: nil %>
+        <% end %>
+    </span>
+    <div class="jumbotron">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Location</th>
+            </tr>
+            <% @book_items.each do |bi| %>
+            <tr>
+                <td><%= bi.book.title %></td>
+                <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
+                <td><%= bi.location.name %></td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+
+<input class="form-control mr-sm-2" type="search" placeholder="IGNORE THIS" aria-label="Search">
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
