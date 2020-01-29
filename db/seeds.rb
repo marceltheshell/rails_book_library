@@ -59,6 +59,6 @@ the_magicians_montclair1 = BookItem.create!(book: b4, location: l3)
 
 
 # checkout_records
-cr1 = CheckoutRecord.create(user: u1, book_item: bird_by_bird_Dimond1)
-cr2 = CheckoutRecord.create(user: u1, book_item: bird_by_bird_Dimond1)
+cr1 = CheckoutRecord.create!(user: u1, book_item: bird_by_bird_Dimond1)
+cr2 = CheckoutRecord.create!(user: u1, book_item: bird_by_bird_Dimond1)
 

@@ -15,6 +15,7 @@
                 <td><%= bi.book_item.book.title %></td>
                 <td><%= "#{bi.book_item.book.author.first_name} #{bi.book_item.book.author.last_name}" %></td>
                 <td><%= bi.book_item.location.name %></td>
+                <td><%= bi.book_item.created_at + 21.days%></td>
             </tr>
             <% end %>
         </table>
