@@ -34,8 +34,8 @@ l2 = Location.create!(name: "Asian Branch", street_address: "20 5th St.", city: 
 l3 = Location.create!(name: "Montclair Branch", street_address: "12 Piedmont St.", city: "Oakland", state: "CA", zip: "94602")
 
 # users
-u1 = User.create!(email: "m@m.com", password: "Swordfish1")
-u2 = User.create!(email: "j@j.com", password: "Swordfish1")
+u1 = User.create!(first_name: "donald", last_name: "duck", email: "m@m.com", password: "Swordfish1")
+u2 = User.create!(first_name: "barbara", last_name: "striesand", email: "j@j.com", password: "Swordfish1")
 
 
 # book_items

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'locations/index'
+  get 'locations/show'
   get 'book_items/index'
   get 'book_items/show'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get 'locations/:id', to: 'locations#show', as: 'location'
   get 'users/delete'
   get 'user', to: 'users#show'
   get 'catalog', to: 'book_items#index', as: 'book_item'

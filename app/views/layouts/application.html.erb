@@ -11,12 +11,6 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light ">
-       <span class="navbar-text nav navbar-nav navbar-right">
-          <% if signed_in? %>
-          Signed in as: <%= current_user.email %>
-        </span>
-      </nav>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Library Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,32 +19,25 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <!-- dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Find a Branch
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
+            <form>
+              <select class="form-control" onchange="window.location=this.value">
+                <option>Select a Branch</option>
+                <% @locations.each do |c| %> 
+                  <option value="<%= request.base_url %>/locations/<%= c.id %>"><%= c.name %></option>
+                <% end %>
+              </select>
+            </form>
             <!-- //dropdown -->
           </ul>
-          <!-- catalog search -->
-          <span class="navbar-text">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search our catalog" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
-            </form>
+          <span class="navbar-text mr-2">
+          <% if signed_in? %>
+          Signed in as: <%= current_user.email.split('@')[0] %>
           </span>
-          <!-- //catalog search-->
           <!-- login stuff -->
           <span class="navbar-text">
-              <%= button_to 'Sign out', sign_out_path, method: :delete %>
+              <%= button_to 'Sign out', sign_out_path, method: :delete, class: "btn btn-outline-success" %>
             <% else %>
-              <%= link_to 'Sign in', sign_in_path %>
+              <%= link_to 'Sign in', sign_in_path, class: "btn btn-outline-success" %>
             <% end %>
           </span>
           <!-- //login stuff -->

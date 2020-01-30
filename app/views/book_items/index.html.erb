@@ -1,38 +1,31 @@
 <nav class="navbar navbar-light bg-light ">
     <!-- catalog search -->
     <span class="navbar-text">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search our catalog" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
-        </form>
+        <%= form_tag(book_item_path, method: :get, class: "form-inline my-2 my-lg-0") do %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Filter by genre", class: "form-control mr-sm-2") %>
+            <%= submit_tag 'Search', name: nil, class:"btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
     </span>
     <!-- //catalog search-->
 </nav>
-<div class="container">
-    <span>
-        <%= form_tag(book_item_path, method: :get) do %>
-            <%= text_field_tag(:search, params[:search]) %>
-            <%= submit_tag 'Search', name: nil %>
+
+<div class="jumbotron ">
+    <h4 class="text-center text-success">Book titles available in your area</h4>
+    <table class="table">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Location</th>
+            <th scope="col">Genre</th>
+        </tr>
+        <% @book_items.each do |bi| %>
+        <tr>
+            <td scope="row"><%= bi.book.title %></td>
+            <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
+            <td><%= bi.location.name %></td>
+            <td><%= bi.book.genres[0].title %></td>
+        </tr>
         <% end %>
-    </span>
-    <div class="jumbotron">
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Location</th>
-            </tr>
-            <% @book_items.each do |bi| %>
-            <tr>
-                <td><%= bi.book.title %></td>
-                <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
-                <td><%= bi.location.name %></td>
-            </tr>
-            <% end %>
-        </table>
-    </div>
+    </table>
 </div>
 
-
-<input class="form-control mr-sm-2" type="search" placeholder="IGNORE THIS" aria-label="Search">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>

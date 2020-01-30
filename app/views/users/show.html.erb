@@ -3,16 +3,16 @@
         <h3>Welcome to your library portal, <%= current_user.first_name %>!</h3>
         <% if @checked_out_book_items.any? %>
         <h7>Your currently checked out books: </h7>
-        <table>
+        <table class="table">
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Location</th>
-                <th>Due Date</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Location</th>
+                <th scope="col">Due Date</th>
             </tr>
             <% @checked_out_book_items.each do |bi| %>
             <tr>
-                <td><%= bi.book_item.book.title %></td>
+                <td scope="row"><%= bi.book_item.book.title %></td>
                 <td><%= "#{bi.book_item.book.author.first_name} #{bi.book_item.book.author.last_name}" %></td>
                 <td><%= bi.book_item.location.name %></td>
                 <td><%= bi.book_item.created_at + 21.days%></td>
