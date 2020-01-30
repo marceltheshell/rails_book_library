@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   get 'book/show'
   get 'catalog/search'
   get 'catalog/checkout'
-  root to: 'welcome#show'
+  root to: 'book_items#index'
 end

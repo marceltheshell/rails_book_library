@@ -14,7 +14,9 @@
             <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
             <td><%= bi.location.name %></td>
             <td><%= bi.book.genres[0].title %></td>
-            <td><a class="btn btn-outline-success" ><%= 'Check out this book' %></a></td>
+            <% if current_user %>
+            <td><%= button_to 'Check out book', users_path, class:"btn btn-outline-success", :action => "checkout_book"%></td>
+            <% end %>
         </tr>
         <% end %>
     </table>
