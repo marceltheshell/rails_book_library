@@ -6,10 +6,8 @@ class LocationsController < ApplicationController
     
   end
   def checkout_book
-    a = params[:data]
-    puts 'heloooooooooo'
-    binding.pry
-    CheckoutRecord.create!(bookItem: bookItem, user: user)
-    #also change the bookItem to checked_out
+    #using params[:data] passed in from the checkout book button
+      #CheckoutRecord.create!(bookItem: bookItem, user: user)
+      #also change the bookItem to checked_out
   end
 end

@@ -16,15 +16,8 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'locations/:id', to: 'locations#show', as: 'location'
-  get 'users/delete'
   post 'locations/checkout', to:'locations#checkout_book'
   get 'user', to: 'users#show'
   get 'catalog', to: 'book_items#index', as: 'book_item'
-  get 'book/create'
-  get 'book/new'
-  get 'book/destroy'
-  get 'book/show'
-  get 'catalog/search'
-  get 'catalog/checkout'
   root to: 'book_items#index'
 end
