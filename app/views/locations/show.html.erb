@@ -1,3 +1,20 @@
 <div class="jumbotron">
     <h2 class="text-center">Welcome to the <%= @location.name %> library portal</h2>
+    <h4 class="text-center text-success">Book titles available at <%= @location.name %>  </h4>
+    <table class="table">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Location</th>
+            <th scope="col">Genre</th>
+        </tr>
+        <% @book_items.each do |bi| %>
+        <tr>
+            <td scope="row"><%= bi.book.title %></td>
+            <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
+            <td><%= bi.location.name %></td>
+            <td><%= bi.book.genres[0].title %></td>
+        </tr>
+        <% end %>
+    </table>
 </div>
