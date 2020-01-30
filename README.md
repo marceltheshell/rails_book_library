@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello there!  This is a quick POC exercise to build a book library management system in Rails 6.  The Ruby version used was v2.6.3.  
 
-Things you may want to cover:
+To get started with the app, clone the repository and run the command:
+`rake db:create db:migrate db:seed`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After that you should be off to the races!
