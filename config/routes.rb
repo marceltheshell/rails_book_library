@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'locations/:id', to: 'locations#show', as: 'location'
   get 'users/delete'
+  post 'locations/checkout', to:'locations#checkout_book'
   get 'user', to: 'users#show'
   get 'catalog', to: 'book_items#index', as: 'book_item'
   get 'book/create'

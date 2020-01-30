@@ -15,7 +15,9 @@
             <td><%= bi.location.name %></td>
             <td><%= bi.book.genres[0].title %></td>
             <% if current_user %>
-            <td><%= button_to 'Check out book', users_path, class:"btn btn-outline-success", :action => "checkout_book"%></td>
+            <td>
+                <%= button_tag "Check out book", data: { confirm: "Sure you want to to check out this book?" }, name: "params", value: "hello", class:"btn btn-outline-success"%>
+            </td>
             <% end %>
         </tr>
         <% end %>

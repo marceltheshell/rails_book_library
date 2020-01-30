@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
     
   end
   def checkout_book
+    a = params[:data]
     puts 'heloooooooooo'
     binding.pry
     CheckoutRecord.create!(bookItem: bookItem, user: user)
