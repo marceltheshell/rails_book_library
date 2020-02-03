@@ -10,7 +10,7 @@
         </tr>
         <% @book_items.each do |bi| %>
         <tr>
-            <td scope="row"><%= bi.book.title %></td>
+            <td scope="row"><%= link_to "#{bi.book.title}", book_item_path(bi) %></td>
             <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
             <td><%= bi.location.name %></td>
             <td><%= bi.book.genres[0].title %></td>
