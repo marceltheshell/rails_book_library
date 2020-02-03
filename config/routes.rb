@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:edit, :update]
   end
-  get '/user', to: 'users#show'
+  get '/users_home', to: 'users#show', as: 'users_home'
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

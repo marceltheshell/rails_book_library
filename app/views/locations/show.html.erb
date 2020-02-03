@@ -14,11 +14,11 @@
             <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
             <td><%= bi.location.name %></td>
             <td><%= bi.book.genres[0].title %></td>
-            <% if current_user %>
-            <td>
-                <%= button_tag "Check out book", data: { confirm: "Sure you want to to check out this book?" }, name: "params", value: "hello", class:"btn btn-outline-success"%>
-            </td>
-            <% end %>
+            <% if bi.available %>
+            <td><%= button_to "Checkout Book", checkout_records_path(bi.id), params: {book_item: bi}, method: :post, class: "btn btn-warning" %></td>
+            <% else %>
+            <td>currently checked out</td>
+    <% end %>
         </tr>
         <% end %>
     </table>

@@ -31,7 +31,7 @@
           </ul>
           <span class="navbar-text mr-2">
           <% if signed_in? %>
-          Signed in as: <%= current_user.email.split('@')[0] %>
+          Signed in as: <%= link_to current_user.email.split('@')[0], users_home_path(current_user) %>
           </span>
           <!-- login stuff -->
           <span class="navbar-text">
