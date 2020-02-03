@@ -4,8 +4,10 @@ class Book < ApplicationRecord
     has_many :book_items, dependent: :destroy
 
     def self.search(search)
-        if search
-            # BookItem.joins(:book).where("title LIKE '%#{search}%'")
+        a = nil
+        if !search.blank?
+            search.downcase!
+            Book.joins(:genres).where("Genres.title = '#{search}'")
         else
             Book.all
         end

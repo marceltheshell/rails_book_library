@@ -13,9 +13,9 @@ a2 = Author.create!(first_name: "William", last_name: "Shakespeare")
 a3 = Author.create!(first_name: "Lev", last_name: "Grossman")
 
 # genres
-g1 = Genre.create!(title: "Self Help")
-g2 = Genre.create!(title: "Non Fiction")
-g3 = Genre.create!(title: "Fiction")
+g1 = Genre.create!(title: "self help")
+g2 = Genre.create!(title: "non fiction")
+g3 = Genre.create!(title: "fiction")
 
 # books
 b1 = a1.books.create!(title: "Bird by Bird")

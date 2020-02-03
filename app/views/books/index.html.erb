@@ -1,8 +1,8 @@
 <nav class="navbar navbar-light bg-light ">
     <!-- catalog search -->
     <span class="navbar-text">
-        <%= form_tag(book_items_path, method: :get, class: "form-inline my-2 my-lg-0") do %>
-            <%= text_field_tag(:search, params[:search], placeholder: "Filter by title", class: "form-control mr-sm-2") %>
+        <%= form_tag(books_path, method: :get, class: "form-inline my-2 my-lg-0") do %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Filter by genre", class: "form-control mr-sm-2") %>
             <%= submit_tag 'Search', name: nil, class:"btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
     </span>
