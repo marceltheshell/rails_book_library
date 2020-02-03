@@ -1,2 +1,32 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="jumbotron text-center">
+    <div><h4><%= @book.title %></h4></div>
+    <div>
+        <%= "Written by: #{@book.author.first_name} #{@book.author.last_name}" %>
+    </div>
+    <div>
+        <div class="container">
+            <h4 class="text-success">Copies in circulation:</h4>
+            <table class="table">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Location</th>
+                </tr>
+                <% @book_items.each do |bi| %>
+                <tr>
+                    <td scope="row"><%= link_to "#{bi.book.title}", book_item_path(bi) %></td>
+                    <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
+                    <td><%= bi.book.genres[0].title %></td>
+                    <td><%= link_to "#{bi.location.name}", location_path(bi.location) %></td>
+                    <%if bi.available %>
+                    <td><%= button_to "Checkout Book", checkout_records_path, params: {book_item: bi}, method: :post, class: "btn btn-warning" %></td>
+                    <% else %>
+                    <td>currently checked out</td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

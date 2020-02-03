@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'checkout_records/create'
   resources :books, only: [:show, :index]
   resources :locations, only: [:show, :index]
   resources :book_items, only: [:show, :index]
-
+  resources :checkout_records, only: [:create]
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:edit, :update]
   end
+  get '/user', to: 'users#show'
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

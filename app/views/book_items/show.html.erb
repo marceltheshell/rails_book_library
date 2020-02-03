@@ -1,4 +1,10 @@
 <div class="jumbotron">
-    <%= @book_item.book.title %>
-    <%= @book_item.book.title %>
+    <div><%= @book_item.book.title %></div>
+    <div><%= "#{@book_item.book.author.first_name} #{@book_item.book.author.last_name}" %> </div>
+    <div>Located at: <%= link_to "#{@book_item.location.name}", location_path(@book_item.location) %> </div>
+    <% if @book_item.available %>
+    <div><%= button_to "Checkout Book", checkout_records_path(@book_item.id, current_user), method: :post, class: "btn btn-warning" %></div>
+    <% else %>
+    <td>currently checked out</td>
+    <% end %>
 </div>

@@ -8,14 +8,14 @@
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Location</th>
-                <th scope="col">Due Date</th>
+                <th scope="col">Due Before</th>
             </tr>
             <% @checked_out_book_items.each do |bi| %>
             <tr>
-                <td scope="row"><%= bi.book_item.book.title %></td>
+                <td scope="row"><%= link_to "#{bi.book_item.book.title}", book_item_path(bi) %></td>
                 <td><%= "#{bi.book_item.book.author.first_name} #{bi.book_item.book.author.last_name}" %></td>
                 <td><%= bi.book_item.location.name %></td>
-                <td><%= bi.book_item.created_at + 21.days%></td>
+                <td><%= (bi.book_item.created_at + 21.days).strftime("%m-%d")%></td>
             </tr>
             <% end %>
         </table>
