@@ -17,14 +17,12 @@
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Genre</th>
-                <th scope="col">Location</th>
             </tr>
-            <% @book_items.each do |bi| %>
+            <% @books.each do |b| %>
             <tr>
-                <td scope="row"><%= link_to "#{bi.book.title}", book_item_path(bi) %></td>
-                <td><%= "#{bi.book.author.first_name} #{bi.book.author.last_name}" %></td>
-                <td><%= link_to "#{bi.location.name}", location_path(bi.location) %></td>
-                <td><%= bi.book.genres[0].title %></td>
+                <td scope="row"><%= link_to "#{b.title}", book_path(b) %></td>
+                <td><%= "#{b.author.first_name} #{b.author.last_name}" %></td>
+                <td><%= b.genres[0].title %></td>
             </tr>
             <% end %>
         </table>

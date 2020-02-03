@@ -5,9 +5,9 @@ class Book < ApplicationRecord
 
     def self.search(search)
         if search
-            BookItem.joins(:book).where("title LIKE '%#{search}%'")
+            # BookItem.joins(:book).where("title LIKE '%#{search}%'")
         else
-            book_items = BookItem.all 
+            Book.all
         end
     end
 end
